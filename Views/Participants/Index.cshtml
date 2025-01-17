@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ECFJanvier.Models.Participant>
+
+<h1>Liste des participants</h1>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-light">
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var participant in Model)
+        {
+            <tr>
+                <td>@participant.Id</td>
+                <td>@participant.Nom</td>
+                <td>@participant.Prenom</td>
+                <td>@participant.Email</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = participant.Id })" class="btn btn-secondary btn-sm">DETAILS</a>
+                    <a href="@Url.Action("Edit", new { id = participant.Id })" class="btn btn-primary btn-sm">EDIT</a>
+                    <a href="@Url.Action("Delete", new { id = participant.Id })" class="btn btn-danger btn-sm">DELETE</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create", "Participants")" class="btn btn-success mt-3">Ajouter un participant</a>

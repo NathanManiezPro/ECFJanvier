@@ -1,0 +1,33 @@
+﻿@model ECFJanvier.Models.Participant
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="card-title">Confirmer la suppression</h3>
+                </div>
+                <div class="card-body">
+                    <p class="text-center">Êtes-vous sûr de vouloir supprimer ce participant ?</p>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-4">Nom</dt>
+                        <dd class="col-sm-8">@Model.Nom</dd>
+
+                        <dt class="col-sm-4">Prénom</dt>
+                        <dd class="col-sm-8">@Model.Prenom</dd>
+
+                        <dt class="col-sm-4">Email</dt>
+                        <dd class="col-sm-8">@Model.Email</dd>
+                    </dl>
+                </div>
+                <div class="card-footer text-center">
+                    <form method="post" action="@Url.Action("Delete", "Participants", new { id = Model.Id })">
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                        <a href="@Url.Action("Index", "Participants")" class="btn btn-secondary">Back To List</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

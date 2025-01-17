@@ -1,0 +1,16 @@
+﻿@model ECFJanvier.Models.Evenement
+
+<h2>Ajouter un participant à l'événement : @Model.Titre</h2>
+
+<form method="post" action="@Url.Action("AddParticipant", "Evenements", new { eventId = Model.Id })">
+    <div class="form-group">
+        <label for="participantId">Sélectionnez un participant</label>
+        <select id="participantId" name="participantId" class="form-control">
+            @foreach (var participant in ViewBag.Participants)
+            {
+                <option value="@participant.Id">@participant.Nom @participant.Prenom</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success mt-3">Ajouter</button>
+</form>

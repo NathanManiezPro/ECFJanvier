@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Evenement>
+
+<h1 class="mb-4">Liste des événements</h1>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-light">
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Date</th>
+            <th>Lieu</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var evenement in Model)
+        {
+            <tr>
+                <td>@evenement.Id</td>
+                <td>@evenement.Titre</td>
+                <td>@evenement.Date.ToString("dd/MM/yyyy")</td>
+                <td>@evenement.Lieu</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = evenement.Id })" class="btn btn-secondary btn-sm">DETAILS</a>
+                    <a href="@Url.Action("Edit", new { id = evenement.Id })" class="btn btn-primary btn-sm">EDIT</a>
+                    <a href="@Url.Action("Delete", new { id = evenement.Id })" class="btn btn-danger btn-sm">DELETE</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<a href="@Url.Action("Create")" class="btn btn-success mt-3">
+    Ajouter un nouvel évènement
+</a>

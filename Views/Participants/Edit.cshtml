@@ -1,0 +1,28 @@
+﻿@model ECFJanvier.Models.Participant
+
+<div class="container mt-5">
+    <h1>Modifier un participant</h1>
+    <hr />
+    <form method="post" asp-action="Edit">
+        <div class="form-group">
+            <label asp-for="Nom" class="form-label"></label>
+            <input asp-for="Nom" class="form-control" />
+            <span asp-validation-for="Nom" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Prenom" class="form-label"></label>
+            <input asp-for="Prenom" class="form-control" />
+            <span asp-validation-for="Prenom" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <hr />
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <a href="@Url.Action("Index", "Participants")" class="btn btn-secondary">Back To List</a>
+        </div>
+    </form>
+</div>

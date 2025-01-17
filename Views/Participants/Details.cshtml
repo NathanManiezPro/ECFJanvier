@@ -1,0 +1,21 @@
+﻿@model ECFJanvier.Models.Participant
+
+<div class="container mt-5">
+    <h1>Détails du participant</h1>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Nom</dt>
+        <dd class="col-sm-9">@Model.Nom</dd>
+
+        <dt class="col-sm-3">Prénom</dt>
+        <dd class="col-sm-9">@Model.Prenom</dd>
+
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+    </dl>
+    <hr />
+    <div>
+        <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-primary">Modifier</a>
+        <a href="@Url.Action("Index", "Participants")" class="btn btn-secondary">Back To List</a>
+    </div>
+</div>

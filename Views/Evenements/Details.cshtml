@@ -1,0 +1,43 @@
+﻿@model ECFJanvier.Models.Evenement
+
+
+
+<h2>Détails de l'Événement</h2>
+<p><strong>Titre :</strong> @Model.Titre</p>
+<p><strong>Date :</strong> @Model.Date.ToString("dd/MM/yyyy")</p>
+<p><strong>Lieu :</strong> @Model.Lieu</p>
+
+<h3>Participants</h3>
+@if (Model.Participants != null && Model.Participants.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ep in Model.Participants)
+            {
+                <tr>
+                    <td>@ep.Participant.Nom</td>
+                    <td>@ep.Participant.Prenom</td>
+                    <td>@ep.Participant.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Aucun participant associé à cet événement.</p>
+}
+
+<a href="@Url.Action("AddParticipant", new { eventId = Model.Id })" class="btn btn-primary">
+    Ajouter un participant
+</a>
+<a href="@Url.Action("Index")" class="btn btn-secondary mt-3">
+    BackToList
+</a>
